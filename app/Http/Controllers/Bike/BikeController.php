@@ -8,10 +8,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 class BikeController extends Controller
 {
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
     public function storeBikes(Request $request)
     {
         $validation = $request->validate([
-            "type" => "required|min:5 ",
+            "type" => "required",
             "model" => "required ",
             "bikes_img" => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "serial_number" => "required|unique:bikes,serial_number",
@@ -24,13 +28,20 @@ class BikeController extends Controller
         $bike->status = $validation['status'];
         $bike->user_id = Auth::id();
         if ($request->hasFile('bikes_img')) {
-            $image = $request->file('bikes_img');
-            $name = time() . '.' . $image->getClientOriginalExtension();
+            $images = $request->file('bikes_img');
+            foreach ($images as $image) {
+                $imagename = $image->store('public/frontend_assets/imgs/bikes/');
+                $bike->photos()->create(['path' => $imagename]);
+            }
+            $name = time() . '.' . $images->getClientOriginalExtension();
             $destinationPath = public_path('frontend_assets/imgs/bikes/');
             $image->move($destinationPath, $name);
             $bike->bikes_img = $name;
         }
-        $bike->save();
+        $store = $bike->save();
+        if ($store) {
+            return redirect('bikesignup')->with('success', 'Bike Added Successfully');
+        }
         return redirect("bikesignup")->withErrors("Something Went Wrong")->with('image', $name);
     }
 }

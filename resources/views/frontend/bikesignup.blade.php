@@ -10,6 +10,11 @@
             </div>
         @endforeach
     @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <form action="{{ url('storebikes') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input">
