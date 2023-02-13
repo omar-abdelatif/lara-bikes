@@ -10,7 +10,7 @@
             </div>
         @endforeach
     @endif
-    <form action="{{ 'storebikes' }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('storebikes') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input">
             <div class="papa">
@@ -22,7 +22,7 @@
             <div class="papa">
                 <input class="frame-number" type="text" name="serial_number" placeholder="رقم الكادر" required />
             </div>
-            <input dir="ltr" type="file" name="bikes_img" accept="image/*" multiple />
+            <input type="file" name="bikes_img" accept="image/*" multiple />
             {{-- <textarea class="mark" name="desc" placeholder="علامة مميزة ( إختياري )" cols="30" rows="2"></textarea> --}}
             <div class="biketype mt-2">
                 <select name="type" class="type p-2 border border-black border-2 rounded bold">
@@ -36,7 +36,7 @@
                 <select name="status" class="type p-2 border border-black border-2 rounded bold mt-2">
                     <option value="#" selected>إختار حالة العجلة</option>
                     <option value="owned">موجودة</option>
-                    <option value="soled">مباعة</option>
+                    <option value="sold">مباعة</option>
                     <option value="stolen">مسروقة</option>
                 </select>
             </div>

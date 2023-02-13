@@ -537,9 +537,11 @@ input[type="file"] {
     background-color: #009fe4 !important;
     color: #fff !important;
     border: none;
-    margin-right: 10px;
     padding: 6px 10px;
     transition: 0.5s;
+}
+::-webkit-file-upload-button:focus{
+    outline: none;
 }
 ::-webkit-file-upload-button:hover {
     background-color: #1a7399 !important;

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Bike;
 
 use App\Models\Bike;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 class BikeController extends Controller
 {
     public function storeBikes(Request $request)
@@ -15,13 +15,14 @@ class BikeController extends Controller
             "model" => "required ",
             "bikes_img" => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "serial_number" => "required|unique:bikes,serial_number",
-            'status' => 'required|in:good,stolen,sold'
+            'status' => 'required|in:owned,stolen,sold'
         ]);
         $bike = new Bike();
         $bike->type = $validation['type'];
         $bike->model = $validation['model'];
         $bike->serial_number = $validation['serial_number'];
         $bike->status = $validation['status'];
+        $bike->user_id = Auth::id();
         if ($request->hasFile('bikes_img')) {
             $image = $request->file('bikes_img');
             $name = time() . '.' . $image->getClientOriginalExtension();
