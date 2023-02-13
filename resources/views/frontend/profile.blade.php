@@ -4,14 +4,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
+                    <div class="breadcrumbs" dir="rtl">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="main">الرئيسية</a>
+                            </li>
+                            <li class="breadcrumb-item" aria-current="page">الملف الشخصي</li>
+                        </ol>
+                    </div>
                     <div class="personal-data">
                         <div class="img">
-                            <img id="profile" src="{{asset('frontend_assets/imgs/profile.svg')}}" alt="profile photo">
+                            <img id="profile" src="{{ asset('frontend_assets/imgs/profile.svg') }}" alt="profile photo">
                         </div>
                         <div class="profile-txt">
                             <p class="username">
                                 الإسم:
-                                <span id="username">{{}}</span>
+                                <span id="username"></span>
                             </p>
                             <p class="tel">
                                 التلفون:
