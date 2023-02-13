@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="breadcrumbs" dir="rtl">
-                        <ol class="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item">
                                 <a href="main">الرئيسية</a>
                             </li>
