@@ -15,12 +15,10 @@ class SiteController extends Controller
     public function viewData()
     {
         $users = User::all();
-        // $user = Auth::user();
-        return view('frontend.home');
+        return view('frontend.home', compact('users'));
     }
     public function viewProfile()
     {
-        // $data = DB::table('users')->get();
         return view('frontend.profile');
     }
     public function home()
@@ -79,8 +77,7 @@ class SiteController extends Controller
                 'email' => 'These credentials do not match our records.'
             ]);
         }
-        $user = Auth::user();
-        return view("frontend.home", compact("user"));
+        return view("frontend.home");
     }
     public function updatePassword(Request $request)
     {

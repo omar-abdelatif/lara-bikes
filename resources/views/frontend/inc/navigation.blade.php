@@ -67,7 +67,7 @@
                         {{-- <img src="" alt=""> --}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <h5 class="text-white text-center text-decoration-underline">إزيك يا{{$user->name}}</h5>
+                        <h5 class="text-white text-center text-decoration-underline">إزيك يا</h5>
                         <li class="dropdown-item">
                             <a href="{{ url('dashboard') }}">لوحة التحكم</a>
                         </li>

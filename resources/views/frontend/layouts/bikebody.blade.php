@@ -13,7 +13,7 @@
     @include('frontend.inc.styles')
 
     <!-- TITLE -->
-    <title>Pirates Bikes | Login</title>
+    <title>Pirates Bikes | Bike Signup</title>
 </head>
 
 <body>
