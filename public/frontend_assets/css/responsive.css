@@ -1,0 +1,69 @@
+/* ! RESPONSIVE ! */
+@media (max-width: 991px) {
+	/* LOGO */
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80%;
+	}
+	.logo button {
+		width: fit-content;
+	}
+	/* NAVBAR */
+	.bg-dark {
+		background-color: transparent !important;
+	}
+	.offcanvas-nav,
+	.offcanvas {
+		display: block;
+	}
+	.offcanvas-nav {
+		padding: 10px;
+	}
+	.offcanvas-nav i {
+		font-size: 20px;
+	}
+	.offcanvas {
+		background-color: #3b3b3b;
+	}
+	.offcanvas-header {
+		justify-content: center;
+	}
+	.loslo {
+		margin-right: 200px;
+	}
+	.offcanvas-end {
+		width: 300px;
+	}
+	.nav .nav-link {
+		font-size: 23px;
+		padding: 20px 0;
+		color: #fff;
+		font-weight: 700;
+	}
+	.nav .nav-link:hover {
+		background-color: #009fe4;
+		color: #fff;
+	}
+	.offcanvas-body {
+		padding: 0;
+		overflow-y: hidden;
+	}
+	.offcanvas-title {
+		font-size: 30px;
+		font-weight: 700;
+		color: #fff;
+		text-decoration: underline;
+	}
+	.social-login {
+		text-align: center;
+	}
+	.social-login a {
+		font-size: 20px;
+		color: #fff;
+	}
+	.fa-facebook {
+		color: #1778f2;
+	}
+}
