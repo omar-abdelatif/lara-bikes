@@ -6,3 +6,5 @@
 <link rel="stylesheet" href="{{ asset('backend_assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('backend_assets/dist/css/adminlte.min.css') }}">
+{{-- ! Custom Style ! --}}
+<link rel="stylesheet" href="{{ asset('backend_assets/dist/css/custom_style.css') }}">

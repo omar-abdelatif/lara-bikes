@@ -12,12 +12,23 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Pirates</b>Bikes</a>
+                <a href="{{ '' }}" class="h1"><b>Pirates</b>Bikes</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new membership</p>
-
-                <form action="{{'storeadmin'}}" method="post">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger mt-3 text-center">
+                            <p class="m-0">{{ $error }}</p>
+                        </div>
+                    @endforeach
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success mt-3">
+                        <p class="m-0 text-center">{{ session('success') }}</p>
+                    </div>
+                @endif
+                <form action="{{ 'storeadmin' }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="name" placeholder="Full name">
@@ -51,6 +62,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control p-0" name="admin_img" placeholder="Retype password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group justify-content-center mb-3">
+                        <div class="form-check">
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" value="male" id="male">
+                        </div>
+                        <div class="form-check">
+                            <label for="female">Female</label>
+                            <input type="radio" name="gender" value="female" id="female">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
@@ -79,7 +108,7 @@
                     </a>
                 </div>
 
-                <a href="{{url('admin/login')}}" class="text-center">I already have a membership</a>
+                <a href="{{ url('admin/login') }}" class="text-center">I already have a membership</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

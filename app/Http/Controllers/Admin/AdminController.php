@@ -28,11 +28,11 @@ class AdminController extends Controller
     {
         $validation = $request->validate([
             "name" => "required|min:3",
-            "email" => 'required|email|unique:users,email',
+            "email" => 'required|email|unique:admin,email',
             "password" => "required|min:8|confirmed",
             "password_confirmation" => "required",
-            'gender' => 'required|in: male,female',
-            "admin_img" => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'gender' => 'required|in:male,female',
+            "admin_img" => 'required|max:2048'
         ]);
         $admin = new Admin();
         $admin->name = $validation['name'];
@@ -50,9 +50,9 @@ class AdminController extends Controller
         }
         $store = $admin->save();
         if ($store) {
-            return redirect('login')->with('success', 'Admin Registed Successfully');
+            return redirect('admin/login')->with('success', 'Admin Registed Successfully');
         }
-        return redirect("regist")->withErrors("Something Went Wrong")->with('image', $newName);
+        return redirect("admin/regist")->withErrors("Something Went Wrong")->with('image', $newName);
     }
     public function loginRequest(Request $request)
     {

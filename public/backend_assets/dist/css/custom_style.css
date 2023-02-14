@@ -1,0 +1,6 @@
+.form-control{
+    height: 2rem !important;
+}
+input[type=radio]{
+    width: 50px !important;
+}
