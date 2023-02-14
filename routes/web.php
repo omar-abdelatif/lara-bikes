@@ -44,6 +44,6 @@ Route::group(['prefix' => 'admin/'], function () {
         Route::view('regist', 'register');
         Route::post('storeadmin', [AdminController::class, 'storeadmin']);
         Route::post('adminlogin', [AdminController::class, 'adminlogin']);
-        Route::view('dashboard');
+        Route::get('dashboard', [AdminController::class, 'dashboard']);
     });
 });

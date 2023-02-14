@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-
-class AdminController extends Controller
+class AdminController extends Admin implements AuthenticatableContract
 {
+    use \Illuminate\Auth\Authenticatable;
+
     public function login(){
         return view('index');
     }
@@ -78,11 +80,11 @@ class AdminController extends Controller
     {
     }
 
-    public function update($id)
+    public function updatee($id)
     {
     }
 
-    public function delete($id)
+    public function deletee($id)
     {
     }
 
