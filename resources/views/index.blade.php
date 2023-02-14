@@ -19,8 +19,8 @@
                 <p class="login-box-msg">Sign in to start your session</p>
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger text-center m-0">
-                            <p>{{$error}}</p>
+                        <div class="alert alert-danger text-center">
+                            <p class="m-0">{{$error}}</p>
                         </div>
                     @endforeach
                 @endif

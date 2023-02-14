@@ -71,7 +71,7 @@ class AdminController extends Admin implements AuthenticatableContract
         }
         $token = Auth::guard('admin')->login($admin);
         if (!$token) {
-            return redirect('signin')->withErrors('Could not generate token for user.');
+            return redirect('admin/login')->withErrors('Could not generate token for user.');
         }
         return view("dashboard", compact("admin"));
     }
@@ -95,8 +95,9 @@ class AdminController extends Admin implements AuthenticatableContract
         return view('index');
     }
 
-    public function f6()
+    public function getAuthIdentifierName()
     {
+        return $this->getKeyName();
     }
 
     public function f7()
