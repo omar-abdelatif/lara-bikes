@@ -38,8 +38,10 @@ Route::group(["middleware" => "guest"], function () {
 
 //! Backend Routes
 
-Route::group(['prefix' => 'admin/login'], function () {
+Route::group(['prefix' => 'admin/'], function () {
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/', 'login');
+        Route::get('login', 'login');
+        Route::view('regist', 'register');
+        Route::post('storeadmin', [AdminController::class, 'storeadmin']);
     });
 });

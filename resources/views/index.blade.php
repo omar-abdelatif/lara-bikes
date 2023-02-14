@@ -64,7 +64,7 @@
                     <a href="{{url('admin/password')}}">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="{{url('admin/register')}}" class="text-center">Register a new membership</a>
+                    <a href="{{url('admin/regist')}}" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.card-body -->
