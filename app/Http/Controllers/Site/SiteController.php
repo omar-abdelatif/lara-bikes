@@ -14,8 +14,9 @@ class SiteController extends Controller
 {
     public function viewData()
     {
-        $users = User::all();
-        return view('frontend.home', compact('users'));
+        $users = DB::table('users')->get();
+        // $users = User::all();
+        return view('frontend.dashboard.dashboard', compact('users'));
     }
     public function viewProfile()
     {

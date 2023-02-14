@@ -4,7 +4,7 @@
             <a href="{{'profile'}}" class="view-site">العودة للبروفايل</a>
         </div>
         <div class="d-flex justify-content-center">
-            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <button class="nav-link admindashboard text-white bold active" id="v-pills-home-tab" data-bs-toggle="pill"
                     data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
                     aria-selected="true">

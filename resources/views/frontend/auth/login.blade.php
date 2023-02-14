@@ -20,7 +20,7 @@
             </ul>
         @endforeach
     @endif
-    <form action="{{ route('loginRequest') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ 'loginRequest' }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="input">
             <div class="papa">
