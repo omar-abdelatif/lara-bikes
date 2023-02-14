@@ -12,6 +12,7 @@ class Bike extends Model
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
+        'brand',
         'type',
         'model',
         'serial_number',

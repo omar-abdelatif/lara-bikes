@@ -13,12 +13,13 @@ return new class extends Migration
         Schema::create('bikes', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->integer('id')->autoIncrement();
+            $table->string('brand');
             $table->string('type');
             $table->string('model');
             $table->string('Serial_number')->unique();
             $table->string('bikes_img');
             $table->string('status');
-            $table->integer('user_id')->index()->references('id')->on('normal_users')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('user_id')->index()->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

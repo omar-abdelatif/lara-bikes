@@ -12,15 +12,24 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 class SiteController extends Controller
 {
-    public function viewData()
+    public function viewTable()
     {
-        $users = DB::table('users')->get();
-        // $users = User::all();
-        return view('frontend.dashboard.dashboard', compact('users'));
+        $view = DB::table('user_bike')->get();
+        return view('frontend.dashboard.dashboard', compact('view'));
     }
+    // public function viewData()
+    // {
+    //     $users = DB::table('users')->get();
+    //     $users = User::all();
+    //     return view('frontend.dashboard.dashboard', compact('users'));
+    // }
     public function viewProfile()
     {
         return view('frontend.profile');
+    }
+    public function viewDashboard()
+    {
+        return view('frontend.dashboard.dashboard');
     }
     public function home()
     {
@@ -78,7 +87,8 @@ class SiteController extends Controller
                 'email' => 'These credentials do not match our records.'
             ]);
         }
-        return view("frontend.home");
+        $user = Auth::user();
+        return view("frontend.home", compact('user'));
     }
     public function updatePassword(Request $request)
     {

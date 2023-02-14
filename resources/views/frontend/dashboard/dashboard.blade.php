@@ -11,7 +11,6 @@
                     <table class=" table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">الإسم</th>
                                 <th scope="col">الهاتف</th>
                                 <th scope="col">العنوان</th>
@@ -24,8 +23,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ( as )
-                                
+                            @foreach ($view as $user)
+                                <tr class="text-center">
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>{{$user->type}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->Serial_number}}</td>
+                                    <td>{{$user->status}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->created_at}}</td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
