@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Admin implements AuthenticatableContract
 {
@@ -63,7 +64,6 @@ class AdminController extends Admin implements AuthenticatableContract
             "password" => "min:3|required",
             "email" => "required|email"
         ]);
-
         $credentials = $request->only('email', 'password');
         $admin = Admin::where('email', $credentials['email'])->first();
         if (!$admin || !Hash::check($credentials['password'], $admin->password)) {
@@ -90,6 +90,9 @@ class AdminController extends Admin implements AuthenticatableContract
 
     public function logout()
     {
+        Session::flush();
+        Auth::logout();
+        return view('index');
     }
 
     public function f6()

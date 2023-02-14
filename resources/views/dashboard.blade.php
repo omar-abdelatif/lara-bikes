@@ -30,6 +30,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{'logout'}}" class="nav-link">Logout</a>
+                </li>
             </ul>
 
             <!-- Right navbar links -->

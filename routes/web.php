@@ -30,6 +30,7 @@ Route::group(["middleware" => "guest"], function () {
     Route::view('signup', 'frontend.auth.register');
     Route::view('request', 'frontend.auth.request_pass')->name('email');
     Route::view('lost-password', 'frontend.auth.lost_pass');
+    Route::view('not_found', 'frontend.404')->name('404');
     Route::post('store', [SiteController::class, 'storeuser'])->name('register');
     Route::post('email', [SiteController::class, 'checkEmail']);
     Route::post('loginRequest', [SiteController::class, 'loginRequest'])->name('loginRequest');
@@ -40,10 +41,11 @@ Route::group(["middleware" => "guest"], function () {
 
 Route::group(['prefix' => 'admin/'], function () {
     Route::controller(AdminController::class)->group(function () {
-        Route::view('signin', 'index')->name('signin');
+        Route::view('login', 'index')->name('signin');
         Route::view('regist', 'register');
         Route::post('storeadmin', [AdminController::class, 'storeadmin']);
         Route::post('adminlogin', [AdminController::class, 'adminlogin']);
         Route::get('dashboard', [AdminController::class, 'dashboard']);
+        Route::get('logout', [AdminController::class, 'logout']);
     });
 });
