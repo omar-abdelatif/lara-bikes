@@ -182,8 +182,7 @@ main{
     color: white;
     font-size: 18px;
 }
-.navbar-dark .navbar-nav .nav-link:hover,
-.active {
+.navbar-dark .navbar-nav .nav-link:hover{
     background-color: #009fe4;
     color: black !important;
 }

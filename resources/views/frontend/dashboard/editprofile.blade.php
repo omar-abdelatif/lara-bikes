@@ -1,1 +1,4 @@
-user edit page
+@extends('frontend.dashboard.layouts.editprofile')
+@section('content')
+
+@endsection
