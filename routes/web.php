@@ -40,8 +40,10 @@ Route::group(["middleware" => "guest"], function () {
 
 Route::group(['prefix' => 'admin/'], function () {
     Route::controller(AdminController::class)->group(function () {
-        Route::get('login', 'login');
+        Route::view('signin', 'index')->name('signin');
         Route::view('regist', 'register');
         Route::post('storeadmin', [AdminController::class, 'storeadmin']);
+        Route::post('adminlogin', [AdminController::class, 'adminlogin']);
+        Route::view('dashboard');
     });
 });

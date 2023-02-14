@@ -108,7 +108,7 @@
                     </a>
                 </div>
 
-                <a href="{{ url('admin/login') }}" class="text-center">I already have a membership</a>
+                <a href="{{ url('admin/signin') }}" class="text-center">I already have a membership</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->

@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -54,17 +55,23 @@ class AdminController extends Controller
         }
         return redirect("admin/regist")->withErrors("Something Went Wrong")->with('image', $newName);
     }
-    public function loginRequest(Request $request)
+    public function adminlogin(Request $request)
     {
-        dd($request);
+        $request->validate([
+            "password" => "min:3|required",
+            "email" => "required|email"
+        ]);
 
         $credentials = $request->only('email', 'password');
         $admin = Admin::where('email', $credentials['email'])->first();
         if (!$admin || !Hash::check($credentials['password'], $admin->password)) {
-            return redirect("signin")->withErrors([
-                'email' => 'These credentials do not match our records.'
-            ]);
+            return redirect("signin")->withErrors('These credentials do not match our records.');
         }
+        $token = Auth::guard('admin')->login($admin);
+        if (!$token) {
+            return redirect('signin')->withErrors('Could not generate token for user.');
+        }
+        return view("dashboard", compact("admin"));
     }
 
     public function edit($id)
