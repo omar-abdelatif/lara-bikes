@@ -62,7 +62,6 @@
                         @yield('content')
                     </div>
                 </div>
-
             </div>
         </section>
         @extends('frontend.dashboard.inc.footer')

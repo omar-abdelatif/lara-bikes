@@ -1,7 +1,9 @@
 @extends('frontend.dashboard.layouts.master')
 
 @section('content')
-    <div class="members-info">
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <div class="members-info">
         <div class="members-title">
             <p>معلومات الأعضاء</p>
         </div>
@@ -27,4 +29,13 @@
             </table>
         </div>
     </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            2</div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            3</div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            4</div>
+    </div>
+
 @endsection

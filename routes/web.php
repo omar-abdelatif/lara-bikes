@@ -16,10 +16,10 @@ Route::group(["middleware" => "auth"], function () {
     Route::view('bikesignup', 'frontend.bikesignup');
     Route::view('404', 'errors.404');
     Route::view('user-dashboard', 'frontend.dashboard.dashboard')->name('user-dashboard');
-    Route::view('edituser', 'frontend.user-dashboard.editprofile');
-    Route::view('editbike', 'frontend.user-dashboard.editbike');
-    Route::view('bikes', 'frontend.user-dashboard.bikes');
-    Route::view('social', 'frontend.user-dashboard.social');
+    Route::view('edituser', 'frontend.dashboard.editprofile');
+    Route::view('editbike', 'frontend.dashboard.editbike');
+    Route::view('bikes', 'frontend.dashboard.bikes');
+    Route::view('social', 'frontend.dashboard.social');
     Route::post('storebikes', [BikeController::class, 'storeBikes']);
     Route::get('logout', [SiteController::class, 'logout']);
 });
