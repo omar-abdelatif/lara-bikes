@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
 
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         if (auth(guard: 'web')->check()) {
             return redirect(to: RouteServiceProvider::HOME);
