@@ -47,5 +47,13 @@ Route::group(['prefix' => 'admin/'], function () {
         Route::post('adminlogin', [AdminController::class, 'adminlogin']);
         Route::get('dashboard', [AdminController::class, 'dashboard']);
         Route::get('logout', [AdminController::class, 'logout']);
+        Route::get('editprofie', [AdminController::class, 'edit']);
+        Route::view();
+        Route::view();
+        Route::view();
+        Route::view();
+        Route::view();
+        Route::view();
+        Route::view();
     });
 });

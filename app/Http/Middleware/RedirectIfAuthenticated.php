@@ -16,7 +16,7 @@ class RedirectIfAuthenticated
             return redirect(to: RouteServiceProvider::HOME);
         }
         if (auth(guard: 'admin')->check()) {
-            return redirect(to: RouteServiceProvider::DASHBOARD);
+            return redirect(to: RouteServiceProvider::LOGIN);
         }
 
         return $next($request);
