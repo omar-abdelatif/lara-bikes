@@ -17,12 +17,11 @@ class SiteController extends Controller
         $view = DB::table('user_bike')->get();
         return view('frontend.dashboard.dashboard', compact('view'));
     }
-    // public function viewData()
-    // {
-    //     $users = DB::table('users')->get();
-    //     $users = User::all();
-    //     return view('frontend.dashboard.dashboard', compact('users'));
-    // }
+    public function viewData()
+    {
+        $users = Auth::user();
+        return view('frontend.dashboard.dashboard', compact('users'));
+    }
     public function viewProfile()
     {
         return view('frontend.profile');

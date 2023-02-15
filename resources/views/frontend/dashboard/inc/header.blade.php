@@ -6,7 +6,7 @@
                 <div class="admin-right">
                     <div class="admin-name">
                         <i class="fal fa-user-crown"></i>
-                        <span>Omar Abdelatif</span>
+                        <span>{{$users->name}}</span>
                     </div>
                 </div>
                 <div class="admin-left">
