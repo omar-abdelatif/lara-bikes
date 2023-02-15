@@ -35,6 +35,11 @@ class SiteController extends Controller
     {
         return view('frontend.layouts.master');
     }
+    public function viewMainData()
+    {
+        $users = Auth::user();
+        return view('frontend.home', compact('users'));
+    }
     public function main()
     {
         return view('frontend.home');

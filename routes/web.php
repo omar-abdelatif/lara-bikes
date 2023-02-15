@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 //! Frontend Routes
 Route::group(["middleware" => "auth"], function () {
-    Route::view('main', 'frontend.home');
+    Route::get('main', [SiteController::class, 'viewMainData']);
     Route::get('profile/{id}', [SiteController::class, 'viewProfile', 'viewData']);
     Route::view('contact','frontend.contact');
     Route::view('about','frontend.about');

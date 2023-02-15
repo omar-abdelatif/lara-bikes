@@ -41,7 +41,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{'main'}}">الرئيسية</a>
+                        <a class="nav-link" href="{{ 'main' }}">الرئيسية</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ 'bikesignup' }}">سجل العجلة</a>
@@ -63,21 +63,16 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a class="login-icon pl-100" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown">
-                            <i class="fad fa-user-circle fa-3x"></i>
-                            {{-- <img src="" alt=""> --}}
+                        <a class="login-icon pl-100" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            <img src="{{ asset('frontend_assets/imgs/users/' . $users->user_img) }}" alt="{{ Auth::user()->name }}'s profile picture">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <h4 class="text-center text-white text-decoration-underline">إزيك يا </h4>
+                            <h4 class="text-center text-white text-decoration-underline">إزيك يا {{ $users->name }}</h4>
                             <li class="dropdown-item">
                                 <a href="{{ url('user-dashboard') }}">لوحة التحكم</a>
                             </li>
                             <li class="dropdown-item">
                                 <a href="{{ url('profile') }}">الصفحة الشخصية</a>
-                            </li>
-                            <li class="dropdown-item">
-                                <a href="{{ url('setting') }}">الإعدادات</a>
                             </li>
                             <li class="dropdown-item">
                                 <a href="{{ url('logout') }}">تسجيل خروج</a>
