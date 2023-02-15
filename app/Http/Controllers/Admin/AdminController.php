@@ -67,7 +67,7 @@ class AdminController extends Admin implements AuthenticatableContract
         $credentials = $request->only('email', 'password');
         $admin = Admin::where('email', $credentials['email'])->first();
         if (!$admin || !Hash::check($credentials['password'], $admin->password)) {
-            return redirect("signin")->withErrors('These credentials do not match our records.');
+            return redirect("admin/login")->withErrors('These credentials do not match our records.');
         }
         $token = Auth::guard('admin')->login($admin);
         if (!$token) {
