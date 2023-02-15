@@ -3,21 +3,20 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Bike\BikeController;
 use App\Http\Controllers\Site\SiteController;
-// use App\Http\Controllers\Bike\BikeController;
 use Illuminate\Support\Facades\Route;
 
 //! Frontend Routes
 Route::group(["middleware" => "auth"], function () {
     Route::view('main', 'frontend.home');
-    Route::get('profile', [SiteController::class, 'viewProfile', 'viewData']);
+    Route::get('profile/{id}', [SiteController::class, 'viewProfile', 'viewData']);
     Route::view('contact','frontend.contact');
     Route::view('about','frontend.about');
     Route::view('blog' , 'frontend.blog');
     Route::view('bikesignup', 'frontend.bikesignup');
     Route::view('404', 'errors.404');
     Route::get('user-dashboard', [SiteController::class, 'viewTable'])->name('user-dashboard');
-    Route::view('edituser', 'frontend.dashboard.editprofile');
-    Route::view('editbike', 'frontend.dashboard.editbike');
+    Route::view('edituser/{id}', 'frontend.dashboard.editprofile');
+    Route::view('editbike/{id}', 'frontend.dashboard.editbike');
     Route::view('bikes', 'frontend.dashboard.bikes');
     Route::view('social', 'frontend.dashboard.social');
     Route::post('storebikes', [BikeController::class, 'storeBikes']);
@@ -47,13 +46,14 @@ Route::group(['prefix' => 'admin/'], function () {
         Route::post('adminlogin', [AdminController::class, 'adminlogin']);
         Route::get('dashboard', [AdminController::class, 'dashboard']);
         Route::get('logout', [AdminController::class, 'logout']);
-        Route::get('editprofie', [AdminController::class, 'edit']);
-        Route::view();
-        Route::view();
-        Route::view();
-        Route::view();
-        Route::view();
-        Route::view();
-        Route::view();
+        Route::get('editprofie/{id}', [AdminController::class, 'edit']);
+        Route::view('allusers',  'users');
+        Route::view('allblogs', 'blogs');
+        Route::view('addblog', 'addblog');
+        Route::view('blog/{id}', 'singleblog');
+        Route::view('editblog/{id}', 'editblog');
+        Route::view('contact', 'contact');
+        Route::view('allbikes', 'bikes');
+        Route::view('about', 'about');
     });
 });
