@@ -25,15 +25,15 @@
                         <tbody>
                             @foreach ($view as $user)
                                 <tr class="text-center">
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->phone}}</td>
-                                    <td>{{$user->address}}</td>
-                                    <td>{{$user->type}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->Serial_number}}</td>
-                                    <td>{{$user->status}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->created_at}}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->address }}</td>
+                                    <td>{{ $user->type }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->Serial_number }}</td>
+                                    <td>{{ $user->status }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->created_at }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -47,6 +47,14 @@
                     <div class="col-lg-12">
                         <section class="editprofile w-50 mx-auto bg-secondary p-3 rounded mt-5">
                             <h2 class="text-white text-center">Edit Your Data</h2>
+                            <form action="{{ 'editprofile' }}" method="post" class="form-group">
+                                <input type="text" class="form-control mb-3 mt-3" name="name" placeholder="User Name" value="" style="border:none">
+                                <input type="email" class="form-control mb-3 mt-3" name="email" placeholder="Email" value="" style="border:none">
+                                <input type="password" class="form-control mb-3 mt-3" name="password" placeholder="Password" value="" style="border:none">
+                                <input type="phone" class="form-control mb-3 mt-3" name="number" placeholder="Phone" value="" style="border:none">
+                                <input type="file" class="form-control mb-3 mt-3 p-0" name="user_img" value="" style="height: 2rem; border:none">
+                                <input type="address" class="form-control mb-3 mt-3" name="address" placeholder="Address" value="" style="border:none">
+                            </form>
                         </section>
                     </div>
                 </div>
