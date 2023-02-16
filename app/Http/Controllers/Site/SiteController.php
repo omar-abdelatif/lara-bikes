@@ -129,6 +129,10 @@ class SiteController extends Controller
         }
         return parent::render($request, $exception);
     }
+    public function updateProfile(Request $request)
+    {
+        dd($request);
+    }
     public function logout()
     {
         Session::flush();

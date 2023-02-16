@@ -46,14 +46,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="editprofile w-50 mx-auto bg-secondary p-3 rounded mt-5">
-                            <h2 class="text-white text-center">Edit Your Data</h2>
-                            <form action="{{ 'editprofile' }}" method="post" class="form-group">
-                                <input type="text" class="form-control mb-3 mt-3" name="name" placeholder="User Name" value="" style="border:none">
-                                <input type="email" class="form-control mb-3 mt-3" name="email" placeholder="Email" value="" style="border:none">
-                                <input type="password" class="form-control mb-3 mt-3" name="password" placeholder="Password" value="" style="border:none">
-                                <input type="phone" class="form-control mb-3 mt-3" name="number" placeholder="Phone" value="" style="border:none">
-                                <input type="file" class="form-control mb-3 mt-3 p-0" name="user_img" value="" style="height: 2rem; border:none">
-                                <input type="address" class="form-control mb-3 mt-3" name="address" placeholder="Address" value="" style="border:none">
+                            <h2 class="text-white text-center">Edit Your Profile Data</h2>
+                            <form action="{{ 'editprofile' }}" method="post" class="form-group" enctype="multipart/form-data">
+                                @csrf
+                                <input type="text" class="form-control mb-3 mt-3 rounded" name="name" placeholder="User Name" value="" style="border:none">
+                                <input type="email" class="form-control mb-3 mt-3 rounded" name="email" placeholder="Email" value="" style="border:none">
+                                <input type="password" class="form-control mb-3 mt-3 rounded" name="password" placeholder="Password" value="" style="border:none">
+                                <input type="phone" class="form-control mb-3 mt-3 rounded" name="number" placeholder="Phone" value="" style="border:none">
+                                <input type="file" class="form-control mb-3 mt-3 p-0 w-100" name="user_img" value="" style="height: 2rem; border:none" accept="image\*" multiple>
+                                <input type="address" class="form-control mb-3 mt-3 rounded" name="address" placeholder="Address" value="" style="border:none">
+                                <input type="submit" value="Submit" class="btn btn-primary w-100">
                             </form>
                         </section>
                     </div>

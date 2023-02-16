@@ -15,7 +15,7 @@ Route::group(["middleware" => "auth"], function () {
     Route::view('bikesignup', 'frontend.bikesignup');
     Route::view('404', 'errors.404');
     Route::get('user-dashboard', [SiteController::class, 'viewTable', 'viewData'])->name('user-dashboard');
-    Route::view('edituser/{id}', 'frontend.dashboard.editprofile');
+    Route::post('editprofile', [SiteController::class, 'updateProfile']);
     Route::view('editbike/{id}', 'frontend.dashboard.editbike');
     Route::view('bikes', 'frontend.dashboard.bikes');
     Route::view('social', 'frontend.dashboard.social');
