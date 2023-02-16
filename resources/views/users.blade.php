@@ -1,1 +1,1 @@
-user page in admin dashboard
+all users page

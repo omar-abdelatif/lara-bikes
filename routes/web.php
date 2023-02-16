@@ -39,7 +39,7 @@ Route::group(["middleware" => "guest"], function () {
 //! Backend Routes
 
 Route::group(['middleware' => ['auth:admin']], function () {
-    
+
 });
 
 Route::group(['prefix' => 'admin/'], function () {
