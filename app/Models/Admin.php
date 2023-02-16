@@ -11,14 +11,14 @@ class Admin extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    // protected $table = 'admin';
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'admin_img',
-        'gender'
-    ];
+    protected $table = 'admin';
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'admin_img',
+    //     'gender'
+    // ];
     protected $hidden = [
         'password',
         'remember_token',

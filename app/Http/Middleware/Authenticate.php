@@ -10,18 +10,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            // if (Request::is('main')) {
-            //     return route('404');
-            // } elseif (Request::is('admin/dashboard')) {
-            //     return route('404');
-            // } else {
-            //     return route('404');
-            // }
-            if (Request::is('/main')) {
-                return route('404');
-            } elseif (Request::is('/admin/dashboard')) {
-                return route('not-found');
-            }
+            return route('not-found');
         }
     }
 }

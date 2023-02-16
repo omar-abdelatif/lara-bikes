@@ -56,7 +56,7 @@ class AdminController extends Admin implements AuthenticatableContract
         if ($store) {
             return redirect('admin/login')->with('success', 'Admin Registed Successfully');
         }
-        return redirect("admin/regist")->withErrors("Something Went Wrong")->with('image', $newName);
+        return redirect("admin/regist")->withErrors("Something Went Wrong")->with('admin_img', $newName);
     }
     function loginAdmin(Request $request)
     {

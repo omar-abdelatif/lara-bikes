@@ -13,7 +13,7 @@ Route::group(["middleware" => "auth"], function () {
     Route::view('about', 'frontend.about');
     Route::view('blog', 'frontend.blog');
     Route::view('bikesignup', 'frontend.bikesignup');
-    Route::view('404', 'errors.404');
+    Route::view('404', 'frontend.404');
     Route::get('user-dashboard', [SiteController::class, 'viewTable', 'viewData'])->name('user-dashboard');
     Route::post('editprofile', [SiteController::class, 'updateProfile']);
     Route::view('editbike/{id}', 'frontend.dashboard.editbike');
@@ -29,22 +29,18 @@ Route::group(["middleware" => "guest"], function () {
     Route::view('signup', 'frontend.auth.register');
     Route::view('request', 'frontend.auth.request_pass')->name('email');
     Route::view('lost-password', 'frontend.auth.lost_pass');
-    Route::view('not_found', 'frontend.404')->name('404');
     Route::post('store', [SiteController::class, 'storeuser'])->name('register');
     Route::post('email', [SiteController::class, 'checkEmail']);
     Route::post('loginRequest', [SiteController::class, 'loginRequest'])->name('loginRequest');
     Route::post('updatepassword', [SiteController::class, 'updatePassword'])->name('updatePassword');
-    Route::view('login', 'index')->name('signin');
-    Route::view('regist', 'register');
-    Route::post('storeadmin', [AdminController::class, 'storeadmin']);
-    Route::post('adminlogin', [AdminController::class, 'adminlogin'])->name('adminlogin');
+
 });
 
 //! Backend Routes
 
-Route::group(['middleware' => ['auth:admin']], function () {
-    Route::group(['prefix' => 'admin/'], function () {
-        Route::controller(AdminController::class)->group(function () {
+Route::group(['prefix' => 'admin/'], function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::group(['middleware' => ['auth:admin']], function () {
             Route::get('dashboard', [AdminController::class, 'dashboard']);
             Route::get('logout', [AdminController::class, 'logout']);
             Route::get('editprofie/{id}', [AdminController::class, 'edit']);
@@ -57,5 +53,9 @@ Route::group(['middleware' => ['auth:admin']], function () {
             Route::view('allbikes', 'bikes');
             Route::view('about', 'about');
         });
+        Route::view('login', 'index')->name('signin');
+        Route::view('regist', 'register');
+        Route::post('storeadmin', [AdminController::class, 'storeadmin']);
+        Route::post('adminlogin', [AdminController::class, 'loginAdmin'])->name('loginAdmin');
     });
 });

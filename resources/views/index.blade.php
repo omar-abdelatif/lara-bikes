@@ -26,10 +26,10 @@
                 @endif
                 @if (session('success'))
                     <div class="alert alert-success text-center">
-                        <p>{{session('success')}}</p>
+                        <p class="mb-0">{{session('success')}}</p>
                     </div>
                 @endif
-                <form action="{{route('adminlogin')}}" method="post">
+                <form action="{{route('loginAdmin')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
