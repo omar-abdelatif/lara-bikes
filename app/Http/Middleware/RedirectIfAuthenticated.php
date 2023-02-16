@@ -12,10 +12,10 @@ class RedirectIfAuthenticated
 
     public function handle($request, Closure $next)
     {
-        if (auth(guard: 'web')->check()) {
+        if (Auth::guard('web')->check()) {
             return redirect(to: RouteServiceProvider::HOME);
         }
-        if (auth(guard: 'admin')->check()) {
+        if (Auth::guard('admin')->check()) {
             return redirect(to: RouteServiceProvider::LOGIN);
         }
 

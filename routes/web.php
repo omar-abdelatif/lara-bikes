@@ -38,6 +38,10 @@ Route::group(["middleware" => "guest"], function () {
 
 //! Backend Routes
 
+Route::group(['middleware' => ['auth:admin']], function () {
+    
+});
+
 Route::group(['prefix' => 'admin/'], function () {
     Route::controller(AdminController::class)->group(function () {
         Route::view('login', 'index')->name('signin');
