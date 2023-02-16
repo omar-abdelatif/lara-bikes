@@ -58,22 +58,19 @@ class AdminController extends Admin implements AuthenticatableContract
         }
         return redirect("admin/regist")->withErrors("Something Went Wrong")->with('image', $newName);
     }
-    public function adminlogin(Request $request)
+    function loginAdmin(Request $request)
     {
-        $request->validate([
-            "password" => "min:3|required",
-            "email" => "required|email"
-        ]);
         $credentials = $request->only('email', 'password');
         $admin = Admin::where('email', $credentials['email'])->first();
+
         if (!$admin || !Hash::check($credentials['password'], $admin->password)) {
             return redirect("admin/login")->withErrors('These credentials do not match our records.');
         }
         $token = Auth::guard('admin')->login($admin);
         if (!$token) {
-            return redirect('admin/login')->withErrors('Could not generate token for user.');
+            return redirect("admin/login")->withErrors('Could not generate token for user.');
         }
-        return view("dashboard", compact("admin"));
+        return view('dashboard', compact("admin"));
     }
 
     public function edit($id)
@@ -84,7 +81,7 @@ class AdminController extends Admin implements AuthenticatableContract
     {
     }
 
-    public function deletee($id)
+    public function remove($id)
     {
     }
 
@@ -95,44 +92,10 @@ class AdminController extends Admin implements AuthenticatableContract
         return view('index');
     }
 
-    public function getAuthIdentifierName()
-    {
-        return $this->getKeyName();
-    }
+    // public function getAuthIdentifierName()
+    // {
+    //     return $this->getKeyName();
+    // }
 
-    public function f7()
-    {
-    }
 
-    public function f8()
-    {
-    }
-
-    public function f9()
-    {
-    }
-
-    public function f10()
-    {
-    }
-
-    public function f11()
-    {
-    }
-
-    public function f12()
-    {
-    }
-
-    public function f13()
-    {
-    }
-
-    public function f14()
-    {
-    }
-
-    public function f15()
-    {
-    }
 }

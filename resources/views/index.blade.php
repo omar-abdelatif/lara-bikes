@@ -29,7 +29,7 @@
                         <p>{{session('success')}}</p>
                     </div>
                 @endif
-                <form action="{{'adminlogin'}}" method="post">
+                <form action="{{route('adminlogin')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -65,10 +65,12 @@
                 </form>
                 <div class="social-auth-links text-center mt-2 mb-3">
                     <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                        <i class="fab fa-facebook mr-2"></i>
+                        Sign in using Facebook
                     </a>
                     <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                        <i class="fab fa-google-plus mr-2"></i>
+                        Sign in using Google+
                     </a>
                 </div>
                 <!-- /.social-auth-links -->

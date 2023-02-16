@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(["middleware" => "auth"], function () {
     Route::get('main', [SiteController::class, 'viewMainData']);
     Route::get('profile/{id}', [SiteController::class, 'viewProfile', 'viewData']);
-    Route::view('contact','frontend.contact');
-    Route::view('about','frontend.about');
-    Route::view('blog' , 'frontend.blog');
+    Route::view('contact', 'frontend.contact');
+    Route::view('about', 'frontend.about');
+    Route::view('blog', 'frontend.blog');
     Route::view('bikesignup', 'frontend.bikesignup');
     Route::view('404', 'errors.404');
     Route::get('user-dashboard', [SiteController::class, 'viewTable', 'viewData'])->name('user-dashboard');
@@ -34,30 +34,28 @@ Route::group(["middleware" => "guest"], function () {
     Route::post('email', [SiteController::class, 'checkEmail']);
     Route::post('loginRequest', [SiteController::class, 'loginRequest'])->name('loginRequest');
     Route::post('updatepassword', [SiteController::class, 'updatePassword'])->name('updatePassword');
+    Route::view('login', 'index')->name('signin');
+    Route::view('regist', 'register');
+    Route::post('storeadmin', [AdminController::class, 'storeadmin']);
+    Route::post('adminlogin', [AdminController::class, 'adminlogin'])->name('adminlogin');
 });
 
 //! Backend Routes
 
 Route::group(['middleware' => ['auth:admin']], function () {
-
-});
-
-Route::group(['prefix' => 'admin/'], function () {
-    Route::controller(AdminController::class)->group(function () {
-        Route::view('login', 'index')->name('signin');
-        Route::view('regist', 'register');
-        Route::post('storeadmin', [AdminController::class, 'storeadmin']);
-        Route::post('adminlogin', [AdminController::class, 'adminlogin']);
-        Route::get('dashboard', [AdminController::class, 'dashboard']);
-        Route::get('logout', [AdminController::class, 'logout']);
-        Route::get('editprofie/{id}', [AdminController::class, 'edit']);
-        Route::view('allusers',  'users');
-        Route::view('allblogs', 'blogs');
-        Route::view('addblog', 'addblog');
-        Route::view('blog/{id}', 'singleblog');
-        Route::view('editblog/{id}', 'editblog');
-        Route::view('contact', 'contact');
-        Route::view('allbikes', 'bikes');
-        Route::view('about', 'about');
+    Route::group(['prefix' => 'admin/'], function () {
+        Route::controller(AdminController::class)->group(function () {
+            Route::get('dashboard', [AdminController::class, 'dashboard']);
+            Route::get('logout', [AdminController::class, 'logout']);
+            Route::get('editprofie/{id}', [AdminController::class, 'edit']);
+            Route::view('allusers',  'users');
+            Route::view('allblogs', 'blogs');
+            Route::view('addblog', 'addblog');
+            Route::view('blog/{id}', 'singleblog');
+            Route::view('editblog/{id}', 'editblog');
+            Route::view('contact', 'contact');
+            Route::view('allbikes', 'bikes');
+            Route::view('about', 'about');
+        });
     });
 });
