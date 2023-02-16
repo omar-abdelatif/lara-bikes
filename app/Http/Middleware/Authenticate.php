@@ -17,12 +17,10 @@ class Authenticate extends Middleware
             // } else {
             //     return route('404');
             // }
-            if (Request::is(app() . '/main')) {
+            if (Request::is('/main')) {
                 return route('404');
-            } elseif (Request::is(app() . '/admin/dashboard')) {
+            } elseif (Request::is('/admin/dashboard')) {
                 return route('not-found');
-            } else {
-
             }
         }
     }
